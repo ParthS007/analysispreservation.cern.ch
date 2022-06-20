@@ -30,6 +30,8 @@ include *.rst
 include *.sh
 include *.txt
 include *.yml
+include *.toml
+include *.yaml
 include COPYING
 include LICENSE
 include babel.ini
