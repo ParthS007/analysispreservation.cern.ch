@@ -23,6 +23,7 @@
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 """Search classes and methods for CMS triggers."""
 
+import os
 import re
 
 from invenio_search.proxies import current_search_client as es
@@ -59,7 +60,10 @@ class CMSTriggerSearch(Search):
     class Meta:
         """Meta class."""
 
-        index = CMS_TRIGGERS_ES_CONFIG['alias']
+        index = (
+            os.environ.get('SEARCH_INDEX_PREFIX', '')
+            + CMS_TRIGGERS_ES_CONFIG['alias']
+        )
         fields = ('trigger',)
 
     def __init__(self, **kwargs):

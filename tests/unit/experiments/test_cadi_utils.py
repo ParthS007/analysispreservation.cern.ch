@@ -527,7 +527,7 @@ def test_synchronize_cadi_entries_when_entry_doesnt_exist_creates_a_new_one_and_
 
     synchronize_cadi_entries()
 
-    current_search.flush_and_refresh('deposits-records')
+    current_search.flush_and_refresh('test-deposits-records')
 
     # deposit with this cadi id created
     deposit = get_deposit_by_cadi_id('EXO-00-000')
@@ -623,7 +623,7 @@ def test_synchronize_cadi_entries_when_LDAP_error_occured_during_permissions_ass
 
     synchronize_cadi_entries()
 
-    current_search.flush_and_refresh('deposits-records')
+    current_search.flush_and_refresh('test-deposits-records')
 
     with raises(DepositDoesNotExist):
         get_deposit_by_cadi_id('EXO-00-001')

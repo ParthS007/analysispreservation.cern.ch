@@ -24,6 +24,8 @@
 
 """Configuration for deposit search."""
 
+import os
+
 from flask import g
 from flask_login import current_user
 from flask_principal import RoleNeed
@@ -80,7 +82,7 @@ class CAPDepositSearch(RecordsSearch):
     class Meta:
         """Configuration for deposit search."""
 
-        index = 'deposits'
+        index = os.environ.get('SEARCH_INDEX_PREFIX', '') + 'deposits'
         doc_types = None
         fields = ('*',)
         facets = {

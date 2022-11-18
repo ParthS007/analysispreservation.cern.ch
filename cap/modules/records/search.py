@@ -1,5 +1,7 @@
 """Configuration for record search."""
 
+import os
+
 from flask import g
 from flask_login import current_user
 from flask_principal import RoleNeed
@@ -43,7 +45,7 @@ class CAPRecordSearch(RecordsSearch):
     class Meta:
         """Configuration for records search."""
 
-        index = 'records'
+        index = os.environ.get('SEARCH_INDEX_PREFIX', '') + 'records'
         doc_types = None
         fields = ('*',)
         facets = {}

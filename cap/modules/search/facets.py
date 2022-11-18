@@ -142,7 +142,10 @@ def cap_facets_factory(search, index):
     """
     urlkwargs = MultiDict()
 
-    facets = current_app.config['RECORDS_REST_FACETS'].get(index)
+    # Strip the search_index_prefix to get the cap facets configuration
+    index_prefix = current_app.config.get('SEARCH_INDEX_PREFIX', '')
+    index_name = index[len(index_prefix) :]  # noqa: E203
+    facets = current_app.config['RECORDS_REST_FACETS'].get(index_name)
 
     if facets is not None:
         # Aggregations.
