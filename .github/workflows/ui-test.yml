@@ -1,7 +1,7 @@
 name: UI test
 on:
   push:
-    branches: [master]
+    branches: [master, upgrade]
     paths:
       - "ui/**"
       - ".github/workflows/ui-test.yml"

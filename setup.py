@@ -51,10 +51,10 @@ extras_require['xrootd'] = [
 setup_requires = ['Babel>=2.4.0', 'pytest-runner>=3.0.0,<5']
 
 install_requires = [
-    'Flask==0.12.4',
+    'Flask==1.1',
     'Flask-Cli>=0.4.0',
-    'Flask-Cache>=0.13.1',
-    'Flask-Debugtoolbar>=0.10.1',
+    'Flask-Caching==1.3.2',
+    'Flask-Debugtoolbar==0.13.1',
     # CAP specific libraries
     'PyGithub>=1.35',
     'python-gitlab>=1.0.2',
