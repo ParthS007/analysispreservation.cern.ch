@@ -52,8 +52,7 @@ setup_requires = ['Babel>=2.4.0', 'pytest-runner>=3.0.0,<5']
 
 install_requires = [
     'Flask==1.1',
-    'Flask-Cli>=0.4.0',
-    'Flask-Caching==1.3.2',
+    'Flask-Caching==1.4.0',
     'Flask-Debugtoolbar==0.13.1',
     # CAP specific libraries
     'PyGithub>=1.35',

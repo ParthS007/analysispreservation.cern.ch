@@ -21,8 +21,7 @@ cryptography==3.3.2       # via invenio-accounts, pyopenssl, sqlalchemy-utils, u
 dojson==1.4.0             # via invenio-oaiserver
 elasticsearch-dsl==5.4.0  # via invenio-search
 elasticsearch==5.5.2      # via elasticsearch-dsl, invenio-search
-flask-caching==1.3.2
-flask-cli==0.4.0
+flask-caching==1.4.0
 flask-debugtoolbar==0.13.1
 flask-sqlalchemy==2.4     # via flask-alembic, invenio-db
 flask==1.1
