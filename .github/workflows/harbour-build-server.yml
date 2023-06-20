@@ -2,13 +2,12 @@ name: Build and export CAP server image
 
 on:
   push:
-    branches: ['master', 'dev', 'qa', 'test']
+    branches: ['master', 'dev', 'qa', 'test', 'deploy-k8s']
     paths-ignore:
       - "ui/**"
 
 jobs:
   build-image:
-    needs: python-tests
     name: Build and export server image
     runs-on: ubuntu-20.04
 
@@ -28,8 +27,15 @@ jobs:
           image: cern-sis/cap-server
           registry: registry.cern.ch
           cache: false
-          tags: ${{ steps.get_branch.outputs.BRANCH_NAME }}
+          tags: qa
           username: ${{ secrets.HARBOR_USERNAME }}
           password: ${{ secrets.HARBOR_PASSWORD }}
           build-args: |
-            BRANCH_NAME=${{ steps.get_branch.outputs.BRANCH_NAME }}
+            BRANCH_NAME=qa
+
+      #- name: Deploy with new image
+      #  uses: cern-sis/gh-workflows/.github/actions/kubernetes-project-new-images@v6.1.0
+      #  with:
+      #    event-type: update
+      #    images: ${{ steps.build.outputs.image-tags }}
+      #    token: ${{ secrets.PAT_FIRE_EVENTS_ON_CERN_SIS_KUBERNETES }}
